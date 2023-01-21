@@ -1,4 +1,4 @@
-package Kacper_Milnikel;
+package Kacper_Milnikel.devices;
 
 public class Car {
     //zad2
@@ -16,5 +16,17 @@ public class Car {
         this.Color = color;
         this.Value = value;
     }
-    //zad2
+
+    //zad6
+    @Override
+    public String toString() {
+        return "Car{" +
+                "Model='" + Model + '\'' +
+                ", Producer='" + Producer + '\'' +
+                ", ManufactureYear=" + ManufactureYear +
+                ", Color='" + Color + '\'' +
+                ", Value=" + Value +
+                ", Millage=" + Millage +
+                '}';
+    }
 }

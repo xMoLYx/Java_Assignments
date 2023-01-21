@@ -1,4 +1,4 @@
-package Kacper_Milnikel;
+package Kacper_Milnikel.creatures;
 
 public class Animal {
     //zad1
@@ -41,5 +41,14 @@ public class Animal {
             }
         }
     }
-    //zad1
+
+    //zad6
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "species='" + species + '\'' +
+                ", weight=" + weight +
+                ", alive=" + alive +
+                '}';
+    }
 }
