@@ -1,4 +1,7 @@
 package Kacper_Milnikel.devices;
+
+import Kacper_Milnikel.creatures.Human;
+
 //zad7
 public class Phone extends Device{
     final Double ScreeenSize;
@@ -36,5 +39,17 @@ public class Phone extends Device{
         System.out.println("dziala!");
     }
 
-
+    //zad8
+    @Override
+    public void sell(Human seller, Human buyer, Double price) throws Exception {
+        try {
+            super.sell(seller, buyer, price);
+            buyer.phone = this;
+            if (seller.phone == this) {
+                seller.phone = null;
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+    }
 }

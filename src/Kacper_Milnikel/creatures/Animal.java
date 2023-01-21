@@ -1,10 +1,12 @@
 package Kacper_Milnikel.creatures;
 
-public class Animal {
+import Kacper_Milnikel.Saleable;
+
+public class Animal implements Saleable {
     //zad1
     public final String species;
     private Double weight;
-    public boolean alive;
+    Boolean alive;
 
     public Animal(String species) {
         this.species = species;
@@ -50,5 +52,21 @@ public class Animal {
                 ", weight=" + weight +
                 ", alive=" + alive +
                 '}';
+    }
+
+    //zad8
+    @Override
+    public void sell(Human seller, Human buyer, Double price) throws Exception {
+        if(buyer.cash >= price) {
+            seller.cash += price;
+            buyer.cash -=price;
+            buyer.pet = this;
+            if(seller.pet == this){
+                seller.pet = null;
+            }
+            System.out.println(seller.FirstName + " " + seller.Lastname + " sprzedal " + this.toString() + " kupujacemu " + buyer.FirstName + " " + buyer.Lastname + " za cene " + price);
+        } else {
+            throw new Exception("Sorry mordo, nie masz kwitu");
+        }
     }
 }

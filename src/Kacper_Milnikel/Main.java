@@ -7,7 +7,7 @@ import Kacper_Milnikel.devices.Phone;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         //zad1
         Animal Sparky = new Animal("Dog");
 //        Sparky.feed();
@@ -31,7 +31,7 @@ public class Main {
         Human me = new Human("Kacper", "Milnikel", 21);
         Car Passat = new Car("Volkswagen", "Passat", 1996, 342512,"Red", 1500.0);
 
-        me.getCar(Passat);
+        me.setCar(Passat);
 
         //zad6
         Car Passat1 = new Car("Volkswagen", "Passat", 1996, 342512,"Red", 1500.0);
@@ -44,6 +44,7 @@ public class Main {
 
         //zad7
         Phone Kacper = new Phone("Apple", "Iphone 11", 2019, 6.1);
+
         Kacper.OS="IOS";
 
         me.phone = Kacper;
@@ -52,5 +53,28 @@ public class Main {
         System.out.println(me.phone);
 
         Passat.TurnOn();
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+
+        //zad8
+        Human Agata = new Human("Agata", "Nijak", 18);
+
+        me.cash = 300.0;
+        Agata.cash = 5200.0;
+
+        Passat1.sell(me, Agata, 1500.0);
+
+        me.phone = Kacper;
+
+        Kacper.sell(me, Agata, 3000.0);
+        System.out.println(Agata.cash);
     }
 }

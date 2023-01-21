@@ -1,5 +1,7 @@
 package Kacper_Milnikel.devices;
 
+import Kacper_Milnikel.creatures.Human;
+
 public class Car extends Device{
     //zad2
     public String Color;
@@ -37,5 +39,20 @@ public class Car extends Device{
         System.out.println("Trzymam");
         System.out.println("Trzymam");
         System.out.println("Dziala!");
+    }
+
+    //zad8
+    @Override
+    public void sell(Human seller, Human buyer, Double price) throws Exception {
+        try {
+            super.sell(seller, buyer, price);
+            buyer.setCar(this);
+            if (seller.getCar() == this) {
+                seller.setCar(null);
+            }
+        } catch (Exception e) {
+            System.out.println("nie da rady");
+            throw e;
+        }
     }
 }
