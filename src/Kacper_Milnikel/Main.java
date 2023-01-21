@@ -3,6 +3,7 @@ package Kacper_Milnikel;
 import Kacper_Milnikel.creatures.Animal;
 import Kacper_Milnikel.devices.Car;
 import Kacper_Milnikel.creatures.Human;
+import Kacper_Milnikel.devices.Phone;
 
 public class Main {
 
@@ -40,5 +41,16 @@ public class Main {
         System.out.println(Passat);
         System.out.println(me);
         System.out.println(Sparky);
+
+        //zad7
+        Phone Kacper = new Phone("Apple", "Iphone 11", 2019, 6.1);
+        Kacper.OS="IOS";
+
+        me.phone = Kacper;
+        Kacper.TurnOn();
+
+        System.out.println(me.phone);
+
+        Passat.TurnOn();
     }
 }

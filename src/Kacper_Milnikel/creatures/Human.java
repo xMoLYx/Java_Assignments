@@ -2,6 +2,8 @@ package Kacper_Milnikel.creatures;
 
 import Kacper_Milnikel.devices.Car;
 
+import Kacper_Milnikel.devices.Phone;
+
 import java.time.LocalDateTime;
 
 public class Human {
@@ -12,6 +14,7 @@ public class Human {
     private Car car;//zad1&2&5
     private Double Salary;//zad3&4
     private LocalDateTime lastSalaryCheck;//zad3&4
+    public Phone phone;//zad7
 
     //zad1&2
     public Human(String fristName, String lastname, int age) {
@@ -21,6 +24,7 @@ public class Human {
         Lastname = lastname;
         Age = age;
         this.Salary = 2700.0;
+        Phone phone;
     }
     //zad3&4
     public double getSalary() {
