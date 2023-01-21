@@ -41,5 +41,5 @@ public class Animal {
             }
         }
     }
-    //koniec zad1
+    //zad1
 }
