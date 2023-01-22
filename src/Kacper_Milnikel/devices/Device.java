@@ -8,11 +8,13 @@ public abstract class Device implements Saleable {
     public final String Model;
     public final String Producer;
     public final int yearOfProduction;
+    public Double Value;
 
     public Device(String model, String producer, int yearOfProduction) {
         this.Model = model;
         this.Producer = producer;
         this.yearOfProduction = yearOfProduction;
+        this.Value = 0.0;
     }
 
     @Override
@@ -32,7 +34,7 @@ public abstract class Device implements Saleable {
         if (buyer.cash >= price) {
             seller.cash += price;
             buyer.cash -= price;
-            System.out.println(seller.FirstName + " " + seller.Lastname + " sprzedal " + this.toString() + " kupujacemu " + buyer.FirstName + " " + buyer.Lastname + " za cene " + price);
+            System.out.println(seller.FirstName + " " + seller.LastName + " sprzedal " + this.toString() + " kupujacemu " + buyer.FirstName + " " + buyer.LastName + " za cene " + price);
         } else {
             throw new Exception("Sorry mordo, nie masz kwitu");
         }

@@ -5,6 +5,9 @@ import Kacper_Milnikel.devices.Car;
 import Kacper_Milnikel.creatures.Human;
 import Kacper_Milnikel.devices.Phone;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) throws Exception {
@@ -77,12 +80,12 @@ public class Main {
         me.cash = 300.0;
         Agata.cash = 5200.0;
 
-        Passat1.sell(me, Agata, 1500.0);
+        //Passat1.sell(me, Agata, 1500.0);
 
         me.phone = Kacper;
         me.pet = Sparky;
 
-        Kacper.sell(me, Agata, 3000.0);
+        //Kacper.sell(me, Agata, 3000.0);
         System.out.println(Agata.cash);
 
         System.out.println(Sparky);
@@ -91,5 +94,24 @@ public class Main {
         me.pet.feed(3.5);
         me.feed();
 
+        Kacper.installAnnApp("Facebook");
+        Kacper.installAnnApp("Instagram", "13.2");
+        Kacper.installAnnApp("YouTube", "18.2", "google.com");
+
+        List<String> apps = new ArrayList<>();
+        apps.add("Twitter");
+        apps.add("Snapchat");
+        apps.add("Zalando");
+
+
+        Car Audi = new Car("Audi", "A4", 2003, 270000, "Gray", 20000.0);
+        Car Golf = new Car("Volkswagen", "Golf", 2001, 320000, "Gray", 8000.0);
+
+        me.setCar(Audi, 1);
+        me.setCar(Golf, 0);
+
+        me.GetValueOfALlCars();
+
+        Audi.sell(me, Agata, 300.0);
     }
 }

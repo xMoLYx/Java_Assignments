@@ -6,28 +6,42 @@ import Kacper_Milnikel.devices.Car;
 import Kacper_Milnikel.devices.Phone;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
-public class Human implements Saleable {
+public class Human extends Animal implements Saleable {
+    public static final int DEFAULT_GARAGE_SIZE = 2;
     public String FirstName;//zad1&2
-    public String Lastname;//zad1&2
+    public String LastName;//zad1&2
     int Age;//zad1&2
     public Animal pet; //zad1
-    private Car car;//zad1&2&5
+    public Car[] garage = new Car[2];
     private Double Salary;//zad3&4
     private LocalDateTime lastSalaryCheck;//zad3&4
     public Phone phone;//zad7
     public Double cash;//zad8
 
     //zad1&2
-    public Human(String firstName, String lastname, int age) {
+    public Human(String FirstName, String LastName, int Age) {
+        super("Homo Sapiens");
         this.pet = pet;
-        this.car = car;
-        this.FirstName = firstName;
-        this.Lastname = lastname;
-        this.Age = age;
+        this.garage = new Car[DEFAULT_GARAGE_SIZE];
+        this.FirstName = FirstName;
+        this.LastName = LastName;
+        this.Age = Age;
         this.Salary = 2700.0;
         this.phone = phone;
         this.cash = cash;
+    }
+
+    public Human(int GarageSize) {
+        super("Homo Sapiens");
+        this.FirstName = FirstName;
+        this.LastName = LastName;
+        this.Age = Age;
+        this.Salary = 2700.0;
+        this.phone = phone;
+        this.cash = cash;
+        this.garage = new Car[GarageSize];
     }
     //zad3&4
     public double getSalary() {
@@ -47,33 +61,45 @@ public class Human implements Saleable {
         }
     }
     //zad5
-    public Car getCar() {
-        return car;
+    public Car getCar(int ParkingLotNumber) {
+        return this.garage[ParkingLotNumber];
     }
 
-    public void setCar(Car car) {
-        if (Salary > car.Value) {
+    //do poprawienia
+    public void setCar(Car car, Integer ParkingLotNumber) {
+        if (Salary > car.Value || this.garage[ParkingLotNumber] == null) {
             System.out.println("Udalo sie kupic auto za gotowke!");
-            this.car = car;
-        } else if (Salary > car.Value/12) {
+            this.garage[ParkingLotNumber] = car;
+        } else if (Salary > car.Value/12 || this.garage[ParkingLotNumber] == null) {
             System.out.println("Udalo sie kupic na kredyt!");
-            this.car = car;
+            this.garage[ParkingLotNumber] = car;
         } else {
             System.out.println("zapisz sie na studia i znajdz nowa robote albo idz po podwyzke");
         }
     }
 
-    //zad6
+    public Double GetValueOfALlCars() {
+        Double ValueOfCars = 0.0;
+        for(int i =0; i < this.garage.length; i++) {
+            if(this.garage[i] != null) {
+                ValueOfCars += this.garage[i].Value;
+            }
+        }
+        return ValueOfCars;
+    }
+
     @Override
     public String toString() {
         return "Human{" +
-                "FristName='" + FirstName + '\'' +
-                ", Lastname='" + Lastname + '\'' +
+                "FirstName='" + FirstName + '\'' +
+                ", LastName='" + LastName + '\'' +
                 ", Age=" + Age +
                 ", pet=" + pet +
-                ", car=" + car +
+                ", garage=" + Arrays.toString(garage) +
                 ", Salary=" + Salary +
                 ", lastSalaryCheck=" + lastSalaryCheck +
+                ", phone=" + phone +
+                ", cash=" + cash +
                 '}';
     }
 
@@ -85,6 +111,23 @@ public class Human implements Saleable {
 
     //ZAD9
     public void feed() {
+
         System.out.println("mmm Szyneczka");
+    }
+
+    public boolean canHaveMoreCars() {
+    }
+
+    public boolean hasACar(Car car) {
+        boolean hasCar = false;
+        for(int i = 0; i <this.garage.length; i++) {
+            if(this.garage[i] == car) {
+                hasCar = true;
+            }
+        }
+        return hasCar;
+    }
+
+    public boolean hasLessCashThanPrice() {
     }
 }

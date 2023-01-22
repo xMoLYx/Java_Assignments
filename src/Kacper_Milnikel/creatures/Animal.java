@@ -8,6 +8,7 @@ public abstract class Animal implements Saleable, Feedable{
     public String name;
     private Double weight;
     Boolean alive;
+    public final static Double DEFAULT_FOOD_WEIGHT = 0.5;
 
     public Animal(String species) {
         this.species = species;
@@ -25,10 +26,15 @@ public abstract class Animal implements Saleable, Feedable{
     }
 
     public void feed(){
+        this.feed(DEFAULT_FOOD_WEIGHT);
+    }
+
+    @Override
+    public void feed(Double FoodWeight) {
         if (!this.alive && weight <= 0){
             System.out.println("Nie karmi się martwych zwierząt");
         } else {
-            this.weight += 0.5;
+            this.weight += FoodWeight;
             System.out.println("Aktualna waga to: " + this.weight);
         }
     }
@@ -69,7 +75,7 @@ public abstract class Animal implements Saleable, Feedable{
             if(seller.pet == this){
                 seller.pet = null;
             }
-            System.out.println(seller.FirstName + " " + seller.Lastname + " sprzedal " + this.toString() + " kupujacemu " + buyer.FirstName + " " + buyer.Lastname + " za cene " + price);
+            System.out.println(seller.FirstName + " " + seller.LastName + " sprzedal " + this.toString() + " kupujacemu " + buyer.FirstName + " " + buyer.LastName + " za cene " + price);
         } else {
             throw new Exception("Sorry mordo, nie masz kwitu");
         }

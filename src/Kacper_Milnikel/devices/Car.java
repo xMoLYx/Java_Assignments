@@ -44,15 +44,31 @@ public class Car extends Device{
     //zad8
     @Override
     public void sell(Human seller, Human buyer, Double price) throws Exception {
-        try {
-            super.sell(seller, buyer, price);
-            buyer.setCar(this);
-            if (seller.getCar() == this) {
-                seller.setCar(null);
-            }
-        } catch (Exception e) {
-            System.out.println("nie da rady");
-            throw e;
+//        try {
+//            super.sell(seller, buyer, price);
+//            buyer.setCar(this);
+//            if (seller.getCar() == this) {
+//                seller.setCar(null);
+//            }
+//        } catch (Exception e) {
+//            System.out.println("nie da rady");
+//            throw e;
+//        }
+        if(!seller.hasACar(this)) {
+            throw new Exception("sprzedawca nie ma tego auta");
         }
+        if(!buyer.canHaveMoreCars()) {
+            throw new Exception("kupujacy nie moze miec wiecej aut");
+        }
+        if(buyer.hasLessCashThanPrice()) {
+            throw new Exception("kupujacy nie ma dosc pieniedzy");
+        }
+        buyer.addCash(this);
+        seller.removeCash(this);
+        buyer.removeMoney(price);
+        seller.addMoney(price);
+        System.out.println("sukces");
+
     }
+
 }
