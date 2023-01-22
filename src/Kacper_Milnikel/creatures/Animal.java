@@ -2,15 +2,17 @@ package Kacper_Milnikel.creatures;
 
 import Kacper_Milnikel.Saleable;
 
-public class Animal implements Saleable {
+public abstract class Animal implements Saleable, Feedable{
     //zad1
     public final String species;
+    public String name;
     private Double weight;
     Boolean alive;
 
     public Animal(String species) {
         this.species = species;
         this.alive = true;
+        this.name = name;
 
 
         if (this.species == "Dog"){
@@ -45,10 +47,13 @@ public class Animal implements Saleable {
     }
 
     //zad6
+
+
     @Override
     public String toString() {
         return "Animal{" +
                 "species='" + species + '\'' +
+                ", name='" + name + '\'' +
                 ", weight=" + weight +
                 ", alive=" + alive +
                 '}';
@@ -69,4 +74,6 @@ public class Animal implements Saleable {
             throw new Exception("Sorry mordo, nie masz kwitu");
         }
     }
+
+
 }

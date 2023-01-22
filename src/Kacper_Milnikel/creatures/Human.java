@@ -11,7 +11,7 @@ public class Human implements Saleable {
     public String FirstName;//zad1&2
     public String Lastname;//zad1&2
     int Age;//zad1&2
-    Animal pet; //zad1
+    public Animal pet; //zad1
     private Car car;//zad1&2&5
     private Double Salary;//zad3&4
     private LocalDateTime lastSalaryCheck;//zad3&4
@@ -81,5 +81,10 @@ public class Human implements Saleable {
     @Override
     public void sell(Human seller, Human buyer, Double price) throws Exception {
         throw new Exception("Oszalales?");
+    }
+
+    //ZAD9
+    public void feed() {
+        System.out.println("mmm Szyneczka");
     }
 }

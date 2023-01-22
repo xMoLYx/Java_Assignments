@@ -9,7 +9,14 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         //zad1
-        Animal Sparky = new Animal("Dog");
+        Animal Sparky = new Animal("Dog") {
+            @Override
+            public void feed(Double FoodWeight) {
+
+            }
+        };
+        Sparky.name = "Sparky";
+
 //        Sparky.feed();
 //        Sparky.feed();
 //        Sparky.feed();
@@ -73,8 +80,16 @@ public class Main {
         Passat1.sell(me, Agata, 1500.0);
 
         me.phone = Kacper;
+        me.pet = Sparky;
 
         Kacper.sell(me, Agata, 3000.0);
         System.out.println(Agata.cash);
+
+        System.out.println(Sparky);
+
+        //zad9
+        me.pet.feed(3.5);
+        me.feed();
+
     }
 }
