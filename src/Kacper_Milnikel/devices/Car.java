@@ -56,18 +56,18 @@ public class Car extends Device{
 //        }
         if(!seller.hasACar(this)) {
             throw new Exception("sprzedawca nie ma tego auta");
-        }
-        if(!buyer.canHaveMoreCars()) {
+        } else if(!buyer.canHaveMoreCars()) {
             throw new Exception("kupujacy nie moze miec wiecej aut");
-        }
-        if(buyer.hasLessCashThanPrice()) {
+        }else  if(buyer.hasLessCashThanPrice(this)) {
             throw new Exception("kupujacy nie ma dosc pieniedzy");
+        } else {
+            seller.removeCar(this);
+            buyer.addCar(this);
+            buyer.addCash(this);
+            seller.removeCash(this);
+            System.out.println("sukces");
         }
-        buyer.addCash(this);
-        seller.removeCash(this);
-        buyer.removeMoney(price);
-        seller.addMoney(price);
-        System.out.println("sukces");
+
 
     }
 

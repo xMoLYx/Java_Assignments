@@ -65,16 +65,16 @@ public class Human extends Animal implements Saleable {
         return this.garage[ParkingLotNumber];
     }
 
-    //do poprawienia
-    public void setCar(Car car, Integer ParkingLotNumber) {
-        if (Salary > car.Value || this.garage[ParkingLotNumber] == null) {
-            System.out.println("Udalo sie kupic auto za gotowke!");
-            this.garage[ParkingLotNumber] = car;
-        } else if (Salary > car.Value/12 || this.garage[ParkingLotNumber] == null) {
-            System.out.println("Udalo sie kupic na kredyt!");
-            this.garage[ParkingLotNumber] = car;
+
+    public void setCar(Car newCar, Integer parkingLotNumber) {
+        if (parkingLotNumber >= this.garage.length) {
+            System.out.println("sorry, nie mamy tak dużego garażu");
+        } else if (parkingLotNumber < 0) {
+            System.out.println("chyba coś ci na łeb upadło");
+        } else if (this.garage[parkingLotNumber] != null) {
+            System.out.println("sorry miejsce zajęte");
         } else {
-            System.out.println("zapisz sie na studia i znajdz nowa robote albo idz po podwyzke");
+            this.garage[parkingLotNumber] = newCar;
         }
     }
 
@@ -116,6 +116,11 @@ public class Human extends Animal implements Saleable {
     }
 
     public boolean canHaveMoreCars() {
+        boolean canHaveMoreCars = true;
+        if (this.garage.length == 0) {
+            canHaveMoreCars = false;
+        }
+        return canHaveMoreCars();
     }
 
     public boolean hasACar(Car car) {
@@ -128,6 +133,42 @@ public class Human extends Animal implements Saleable {
         return hasCar;
     }
 
-    public boolean hasLessCashThanPrice() {
+    public boolean hasLessCashThanPrice(Car car) {
+        boolean hasLessCashThanPrice = false;
+        if (this.cash < this.sell.;) {
+            hasLessCashThanPrice = true;
+        }
+        return hasLessCashThanPrice;
     }
+
+//    public void addCash(Car car) {
+//        this.cash += this.set;
+//    }
+//
+//    public void removeCash(Car car) {
+//    }
+//
+//    public void removeMoney(Double price) {
+//    }
+//
+//    public void addMoney(Double price) {
+//    }
+//
+//    public void removeCar(Car car) {
+//        Car RemoveCar = null;
+//        for(int i = 0; i <this.garage.length; i++) {
+//            if(this.garage[i] == car) {
+//                this.garage[i] = RemoveCar;
+//            }
+//        }
+//    }
+//
+//    public void addCar(Car car) {
+//        Car addCar = car;
+//        for(int i = 0; i <this.garage.length; i++) {
+//            if(this.garage[i] == addCar) {
+//                this.garage[i] = addCar;
+//            }
+//        }
+//    }
 }
