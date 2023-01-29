@@ -20,28 +20,29 @@ public class Main {
         };
         Sparky.name = "Sparky";
 
-//        Sparky.feed();
-//        Sparky.feed();
-//        Sparky.feed();
-//        Sparky.feed();
-//        Sparky.TakeForAWalk();
-//        Sparky.TakeForAWalk();
-//        Sparky.TakeForAWalk();
-//        Sparky.TakeForAWalk();
-//        Sparky.TakeForAWalk();
-//        Sparky.TakeForAWalk();
-//        Sparky.TakeForAWalk();
-//        Sparky.TakeForAWalk();
-//        Sparky.TakeForAWalk();
-//        Sparky.TakeForAWalk();
-//        Sparky.TakeForAWalk();
-//        Sparky.TakeForAWalk();
+        Sparky.feed();
+        Sparky.feed();
+        Sparky.feed();
+        Sparky.feed();
+        Sparky.TakeForAWalk();
+        Sparky.TakeForAWalk();
+        Sparky.TakeForAWalk();
+        Sparky.TakeForAWalk();
+        Sparky.TakeForAWalk();
+        Sparky.TakeForAWalk();
+        Sparky.TakeForAWalk();
+        Sparky.TakeForAWalk();
+        Sparky.TakeForAWalk();
+        Sparky.TakeForAWalk();
+        Sparky.TakeForAWalk();
+        Sparky.TakeForAWalk();
 
         //zad2
         Human me = new Human("Kacper", "Milnikel", 21);
+
         Car Passat = new Car("Volkswagen", "Passat", 1996, 342512,"Red", 1500.0);
 
-        me.setCar(Passat);
+        me.setCar(Passat, 2);
 
         //zad6
         Car Passat1 = new Car("Volkswagen", "Passat", 1996, 342512,"Red", 1500.0);
@@ -76,17 +77,22 @@ public class Main {
 
         //zad8
         Human Agata = new Human("Agata", "Nijak", 18);
+        Agata.garage = new Car[2];
+        Agata.addCar(Passat);
+        Agata.setCar(Passat1,1);
+        System.out.println(Agata.getCar(1));
 
-        me.cash = 300.0;
+        me.cash = 2000.0;
         Agata.cash = 5200.0;
 
-        //Passat1.sell(me, Agata, 1500.0);
+        Passat1.sell(Agata, me, 1500.0);
 
         me.phone = Kacper;
         me.pet = Sparky;
 
-        //Kacper.sell(me, Agata, 3000.0);
+        Kacper.sell(me, Agata, 3000.0);
         System.out.println(Agata.cash);
+        System.out.println(Agata.phone);
 
         System.out.println(Sparky);
 
@@ -107,11 +113,30 @@ public class Main {
         Car Audi = new Car("Audi", "A4", 2003, 270000, "Gray", 20000.0);
         Car Golf = new Car("Volkswagen", "Golf", 2001, 320000, "Gray", 8000.0);
 
-        me.setCar(Audi, 1);
-        me.setCar(Golf, 0);
+        System.out.println(me.garage.length);
+        Passat.sell(Agata, me, 300.0);
+        Human michal = new Human(5);
+        michal.FirstName = "Michal";
+        michal.cash = 5000.0;
+        System.out.println(michal.garage.length);
 
-        me.GetValueOfALlCars();
+        System.out.println(me.getCar(0));
+        System.out.println(me.getCar(1));
+        Passat.sell(me,michal,1000.0);
+        me.setCar(Audi,1);
 
-        Audi.sell(me, Agata, 300.0);
+        System.out.println(me.cash + " - ja, przed sprzedażą");
+        System.out.println(michal.cash + " - Michal, przed sprzedażą");
+        Audi.sell(me, michal, 100.0);
+
+        System.out.println(me.cash + " - ja, po sprzedaży");
+        System.out.println(michal.cash + " - Michal, po sprzedaży");
+
+
+        System.out.println(michal.GetValueOfALlCars());
+
+        Audi.sell(michal, Agata, 300.0);
+
+        System.out.println(michal.GetValueOfALlCars());
     }
 }

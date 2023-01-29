@@ -10,9 +10,9 @@ import java.util.List;
 public class Phone extends Device{
     final Double ScreeenSize;
     public String OS;
-    private static final String DEFAULT_APP_VERSION = "Latest Version";
-    private static final String DEFAULT_SERVER_NAME = "wsb.apps.pl";
-    private static final String DEFAULT_PROTOCOL = "HTTPS";
+    private static final String DEFAULT_APP_VERSION = "Latest Version"; //zad10
+    private static final String DEFAULT_SERVER_NAME = "wsb.apps.pl"; //zad10
+    private static final String DEFAULT_PROTOCOL = "HTTPS"; //zad10
 
     public Phone(String producer, String model, int yearOfProduction, Double screeenSize) {
         super(producer, model, yearOfProduction);
@@ -60,6 +60,7 @@ public class Phone extends Device{
         }
     }
 
+    //zad10
     public void installAnnApp(String AppName) {
         this.installAnnApp(AppName, DEFAULT_APP_VERSION);
     }

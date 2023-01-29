@@ -58,13 +58,13 @@ public class Car extends Device{
             throw new Exception("sprzedawca nie ma tego auta");
         } else if(!buyer.canHaveMoreCars()) {
             throw new Exception("kupujacy nie moze miec wiecej aut");
-        }else  if(buyer.hasLessCashThanPrice(this)) {
+        }else  if(!buyer.cantAfford(price)) {
             throw new Exception("kupujacy nie ma dosc pieniedzy");
         } else {
             seller.removeCar(this);
             buyer.addCar(this);
-            buyer.addCash(this);
-            seller.removeCash(this);
+            buyer.cash -= price;
+            seller.cash += price;
             System.out.println("sukces");
         }
 
