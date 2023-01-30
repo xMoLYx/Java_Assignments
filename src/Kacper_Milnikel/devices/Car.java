@@ -2,7 +2,7 @@ package Kacper_Milnikel.devices;
 
 import Kacper_Milnikel.creatures.Human;
 
-public class Car extends Device{
+public abstract class Car extends Device{
     //zad2
     public String Color;
     public Double Value;
@@ -44,16 +44,6 @@ public class Car extends Device{
     //zad8
     @Override
     public void sell(Human seller, Human buyer, Double price) throws Exception {
-//        try {
-//            super.sell(seller, buyer, price);
-//            buyer.setCar(this);
-//            if (seller.getCar() == this) {
-//                seller.setCar(null);
-//            }
-//        } catch (Exception e) {
-//            System.out.println("nie da rady");
-//            throw e;
-//        }
         if(!seller.hasACar(this)) {
             throw new Exception("sprzedawca nie ma tego auta");
         } else if(!buyer.canHaveMoreCars()) {
@@ -67,8 +57,8 @@ public class Car extends Device{
             seller.cash += price;
             System.out.println("sukces");
         }
-
-
     }
 
+    //zad10
+    public abstract void refuel();
 }

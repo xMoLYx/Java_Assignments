@@ -3,6 +3,7 @@ package Kacper_Milnikel.creatures;
 import Kacper_Milnikel.Saleable;
 import Kacper_Milnikel.devices.Car;
 
+import Kacper_Milnikel.devices.CarsInOrder;
 import Kacper_Milnikel.devices.Phone;
 
 import java.time.LocalDateTime;
@@ -83,8 +84,13 @@ public class Human extends Animal implements Saleable {
         return ValueOfCars;
     }
 
-    //sortowanie here
+    //zad11
+    public void sortCars() {
+        CarsInOrder comparator = new CarsInOrder();
+        Arrays.sort(this.garage, comparator);
+    }
 
+    //zad6
     @Override
     public String toString() {
         return "Human{" +
@@ -112,6 +118,7 @@ public class Human extends Animal implements Saleable {
         System.out.println("mmm Szyneczka");
     }
 
+    //zad11
     public boolean canHaveMoreCars() {
         boolean canHaveMoreCars = false;
         for(int i = 0; i <= this.garage.length; i++) {
@@ -123,6 +130,7 @@ public class Human extends Animal implements Saleable {
         return canHaveMoreCars;
     }
 
+    //zad11
     public boolean hasACar(Car car) {
         boolean hasCar = false;
         for(int i = 0; i <this.garage.length; i++) {
@@ -133,6 +141,7 @@ public class Human extends Animal implements Saleable {
         return hasCar;
     }
 
+    //zad11
     public boolean cantAfford(Double price) {
         boolean cantAfford = true;
         if (this.cash < price) {
@@ -141,6 +150,7 @@ public class Human extends Animal implements Saleable {
         return cantAfford;
     }
 
+    //zad11
     public void removeCar(Car car) {
         for (int i = 0; i < garage.length; i++) {
             if (this.garage[i] == car) {
@@ -149,6 +159,7 @@ public class Human extends Animal implements Saleable {
         }
     }
 
+    //zad11
     public void addCar(Car car) {
         for (int i = 0; i < garage.length; i++) {
             if (this.garage[i] == null) {

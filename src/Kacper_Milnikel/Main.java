@@ -1,11 +1,11 @@
 package Kacper_Milnikel;
 
 import Kacper_Milnikel.creatures.Animal;
-import Kacper_Milnikel.devices.Car;
+import Kacper_Milnikel.devices.*;
 import Kacper_Milnikel.creatures.Human;
-import Kacper_Milnikel.devices.Phone;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -40,14 +40,13 @@ public class Main {
         //zad2
         Human me = new Human("Kacper", "Milnikel", 21);
 
-        Car Passat = new Car("Volkswagen", "Passat", 1996, 342512,"Red", 1500.0);
+        Diesel Passat = new Diesel("Volkswagen", "Passat", 1996, 342512,"Red", 1500.0);
 
         me.setCar(Passat, 2);
 
         //zad6
-        Car Passat1 = new Car("Volkswagen", "Passat", 1996, 342512,"Red", 1500.0);
+        LPG Passat1 = new LPG("Volkswagen", "Passat", 1996, 342512,"Red", 2500.0);
 
-        System.out.println(Passat == Passat1);
         System.out.println(Passat.equals(Passat1));
         System.out.println(Passat);
         System.out.println(me);
@@ -110,9 +109,10 @@ public class Main {
         apps.add("Zalando");
 
 
-        Car Audi = new Car("Audi", "A4", 2003, 270000, "Gray", 20000.0);
-        Car Golf = new Car("Volkswagen", "Golf", 2001, 320000, "Gray", 8000.0);
+        Electric Audi = new Electric("Audi", "A4", 2003, 270000, "Gray", 20000.0);
+        Diesel Golf = new Diesel("Volkswagen", "Golf", 2001, 320000, "Gray", 8000.0);
 
+        //zad11
         System.out.println(me.garage.length);
         Passat.sell(Agata, me, 300.0);
         Human michal = new Human(5);
@@ -131,12 +131,24 @@ public class Main {
 
         System.out.println(me.cash + " - ja, po sprzedaży");
         System.out.println(michal.cash + " - Michal, po sprzedaży");
+        michal.setCar(Passat1, 2);
 
 
         System.out.println(michal.GetValueOfALlCars());
 
-        Audi.sell(michal, Agata, 300.0);
+        System.out.println(michal.getCar(0));
+        System.out.println(michal.getCar(1));
+        System.out.println(michal.getCar(2));
+        michal.sortCars();
 
-        System.out.println(michal.GetValueOfALlCars());
+        System.out.println("posortowane");
+        System.out.println(michal.getCar(0));
+        System.out.println(michal.getCar(1));
+        System.out.println(michal.getCar(2));
+        System.out.println(michal.getCar(3));
+        System.out.println(michal.getCar(4));
+
+
+
     }
 }
