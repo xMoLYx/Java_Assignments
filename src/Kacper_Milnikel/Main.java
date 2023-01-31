@@ -5,7 +5,6 @@ import Kacper_Milnikel.devices.*;
 import Kacper_Milnikel.creatures.Human;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -45,7 +44,7 @@ public class Main {
         me.setCar(Passat, 2);
 
         //zad6
-        LPG Passat1 = new LPG("Volkswagen", "Passat", 1996, 342512,"Red", 2500.0);
+        LPG Passat1 = new LPG("Volkswagen", "Passat", 1992, 342512,"Red", 2500.0);
 
         System.out.println(Passat.equals(Passat1));
         System.out.println(Passat);
@@ -128,6 +127,8 @@ public class Main {
         System.out.println(me.cash + " - ja, przed sprzedażą");
         System.out.println(michal.cash + " - Michal, przed sprzedażą");
         Audi.sell(me, michal, 100.0);
+        Audi.sell(michal, Agata, 20.0);
+        System.out.println(Audi.getOwners());
 
         System.out.println(me.cash + " - ja, po sprzedaży");
         System.out.println(michal.cash + " - Michal, po sprzedaży");
@@ -149,6 +150,40 @@ public class Main {
         System.out.println(michal.getCar(4));
 
 
+
+        Audi.refuel();
+
+        //zad12
+        System.out.println(Audi.getOwners());
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(Passat.getOwners());
+
+        Audi.sell(Agata, michal, 20.0);
+        Audi.sell(michal, Agata, 10.0);
+
+        System.out.println(Audi.getOwners());
+        System.out.println(Passat1.getOwners());
+
+        Passat1.sell(michal, me, 10.0);
+        System.out.println(Agata.garage.length);
+        System.out.println(Agata.getCar(0));
+        System.out.println(Agata.getCar(1));
+
+        Passat1.sell(me, Agata, 2.0);
+        Passat1.sell(Agata,michal, 2.0);
+
+        System.out.println(Passat1.getOwners());
+        me.setCar(Audi, 1);
+
+        System.out.println(Audi.wasOwner(Agata));
+        Passat1.wasSoldBy(me, Agata);
+        System.out.println(Passat1.getOwners());
+
+        Passat1.timesSold();
 
     }
 }

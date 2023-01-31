@@ -7,7 +7,9 @@ import Kacper_Milnikel.devices.CarsInOrder;
 import Kacper_Milnikel.devices.Phone;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Human extends Animal implements Saleable {
     public static final int DEFAULT_GARAGE_SIZE = 2;
@@ -121,10 +123,9 @@ public class Human extends Animal implements Saleable {
     //zad11
     public boolean canHaveMoreCars() {
         boolean canHaveMoreCars = false;
-        for(int i = 0; i <= this.garage.length; i++) {
+        for (int i = 0; i < this.garage.length; i++) {
             if (this.garage[i] == null) {
                 canHaveMoreCars = true;
-                break;
             }
         }
         return canHaveMoreCars;
@@ -133,8 +134,8 @@ public class Human extends Animal implements Saleable {
     //zad11
     public boolean hasACar(Car car) {
         boolean hasCar = false;
-        for(int i = 0; i <this.garage.length; i++) {
-            if(this.garage[i] == car) {
+        for (int i = 0; i < this.garage.length; i++) {
+            if (this.garage[i] == car) {
                 hasCar = true;
             }
         }
