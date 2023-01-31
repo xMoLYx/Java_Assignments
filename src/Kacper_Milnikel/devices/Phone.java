@@ -4,6 +4,7 @@ import Kacper_Milnikel.creatures.Human;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashSet;
 import java.util.List;
 
 //zad7
@@ -83,7 +84,7 @@ public class Phone extends Device{
     }
 
 
-    public void instalAnApp(URL url) {
+    public void installAnApp(URL url) {
         System.out.println("Strona " + url + " bezpieczna");
         System.out.println("Jest miejsce na dysku");
         System.out.println("Aplikacja jest darmowa");
@@ -92,5 +93,53 @@ public class Phone extends Device{
         System.out.println("Trwa rozpakowywanie aplikacji");
         System.out.println("Trwa instalacja aplikacji");
         System.out.println("Aplikacja zainstalowana");
+    }
+
+    //zad13
+    public HashSet<Application> appsCollection = new HashSet<Application>();
+
+    void addApp(Phone phone, Application app) {
+        phone.appsCollection.add(app);
+    }
+    public void installNewApp(Application app, Human human) {
+        if (app.price == 0.0) {
+            System.out.println("Aplikacja jest darmowa!");
+            addApp(this, app);
+            System.out.println("Kupiono " + app.name);
+        } else if (human.cash > app.price) {
+            System.out.println("Kupiono! " + app.name + "Właściciel miał wystarczająco pieniędzy aby kupić!");
+            addApp(this, app);
+            human.cash -= app.price;
+        } else {
+            System.out.println("Właściciel telefonu nie ma wystarczająco pieniędzy. Zakup nieudany!");
+        }
+    }
+
+    public void isInstalled(Application app) {
+        if (this.appsCollection.contains(app)) {
+            System.out.println("Aplikacja jest już zainstalowana!");
+        } else {
+            System.out.println("Aplikację można zainstalować.");
+        }
+    }
+
+    public void isInstalled(String nameOfApp) {
+        //code here
+    }
+
+    public void allFreeApps() {
+        //code here
+    }
+
+    public void howManyAppsIsInstalled() {
+        System.out.println("Zainstalowanych aplikacji: " + this.appsCollection.size());
+    }
+
+    public void sortNameApps() {
+        //code here
+    }
+
+    public void sortViaPrice() {
+        //code here
     }
 }

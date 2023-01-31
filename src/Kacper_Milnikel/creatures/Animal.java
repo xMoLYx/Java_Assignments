@@ -81,5 +81,25 @@ public abstract class Animal implements Saleable, Feedable{
         }
     }
 
+    //zad8
+    public void sellAnimal(Human seller, Human buyer, Double price) {
+        if (this instanceof Human) {
+            System.out.println("Nie można sprzedawać ludzi!");
+        } else if (species == "homo sapiens") {
+            System.out.println("Handel ludźmi jest nielegalny!!");
+        } else if (buyer.cash < price) {
+            System.out.println("Kupujący ma za mało pieniędzy.");
+        } else if (seller.pet == null) {
+            System.out.println("Sprzedający nie ma żadnego zwierzęcia.");
+        } else if (!seller.pet.equals(this)) {
+            System.out.println("Sprzedający nie ma tego zwierzęcia.");
+        } else {
+            seller.cash += price;
+            buyer.cash -= price;
+            seller.pet = null;
+            buyer.pet = this;
+            System.out.println("Transakcja się udała, kupiono " + this);
+        }
+    }
 
 }

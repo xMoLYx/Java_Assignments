@@ -75,6 +75,7 @@ public class Main {
 
         //zad8
         Human Agata = new Human("Agata", "Nijak", 18);
+
         Agata.garage = new Car[2];
         Agata.addCar(Passat);
         Agata.setCar(Passat1,1);
@@ -82,6 +83,12 @@ public class Main {
 
         me.cash = 2000.0;
         Agata.cash = 5200.0;
+
+
+        Sparky.sellAnimal(me,Agata, 100.0);
+        Sparky.sellAnimal(Agata,me, 12130.0);
+        Sparky.sellAnimal(Agata,me, 12130.0);
+
 
         Passat1.sell(Agata, me, 1500.0);
 
@@ -102,6 +109,7 @@ public class Main {
         Kacper.installAnnApp("Instagram", "13.2");
         Kacper.installAnnApp("YouTube", "18.2", "google.com");
 
+        //zad10
         List<String> apps = new ArrayList<>();
         apps.add("Twitter");
         apps.add("Snapchat");
@@ -110,6 +118,8 @@ public class Main {
 
         Electric Audi = new Electric("Audi", "A4", 2003, 270000, "Gray", 20000.0);
         Diesel Golf = new Diesel("Volkswagen", "Golf", 2001, 320000, "Gray", 8000.0);
+
+        Audi.refuel();
 
         //zad11
         System.out.println(me.garage.length);
@@ -185,5 +195,20 @@ public class Main {
 
         Passat1.timesSold();
 
+        //zad13
+        Application puzzleGarden = new Application("Sudoku", 1.0, 0.0);
+        Application heroes = new Application("Portal II", 3.0, 30.0);
+        Application vip = new Application("Pokemon Go", 1.0,300000.0);
+        Kacper.isInstalled(puzzleGarden);
+        Kacper.installNewApp(puzzleGarden,me);
+        Kacper.installNewApp(heroes,me);
+        Kacper.isInstalled(heroes);
+        Kacper.isInstalled("Heroes III");
+        Kacper.installNewApp(vip,me);
+        Kacper.allFreeApps();
+        Kacper.howManyAppsIsInstalled();
+        Kacper.sortNameApps();
+        Kacper.sortViaPrice();
+        System.out.println(Kacper.appsCollection);
     }
 }
