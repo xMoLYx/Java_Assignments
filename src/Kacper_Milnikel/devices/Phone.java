@@ -81,4 +81,16 @@ public class Phone extends Device{
             this.installAnnApp(AppName);
         }
     }
+
+
+    public void instalAnApp(URL url) {
+        System.out.println("Strona " + url + " bezpieczna");
+        System.out.println("Jest miejsce na dysku");
+        System.out.println("Aplikacja jest darmowa");
+        System.out.println("Aplikacja");
+        System.out.println("Trwa pobieranie aplikacji");
+        System.out.println("Trwa rozpakowywanie aplikacji");
+        System.out.println("Trwa instalacja aplikacji");
+        System.out.println("Aplikacja zainstalowana");
+    }
 }
